@@ -1,0 +1,158 @@
+/* Global Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #87CEEB; /* Azul celeste */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* Card Styles */
+.card {
+  width: 80%; /* Ajusta al tamaño de pantalla */
+  max-width: 500px;
+  height: auto;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1s ease-in-out;
+}
+
+.card:hover {
+  transform: rotate(-5deg);
+}
+
+.card:hover .outside {
+  transform: rotateY(-130deg);
+}
+
+.outside, .inside {
+  height: 370px;
+  width: 100%;
+  position: absolute;
+}
+
+.inside {
+  background: linear-gradient(to right, #e7e7e7, #ffffff 30%);
+  line-height: 1.5;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outside {
+  transform-style: preserve-3d;
+  z-index: 1;
+  transform-origin: left;
+  transition: transform 2s ease-in-out;
+  cursor: pointer;
+}
+
+.front, .back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-color: #FFB6C1; /* Rosa claro */
+}
+
+.back {
+  transform: rotateY(180deg);
+  background: linear-gradient(to left, #e7e7e7, #ffffff 30%);
+}
+
+.pill {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+/* Text Styles */
+.outside p {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 3px;
+  color: #000046;
+}
+
+.inside h1 {
+  font-size: 3rem;
+  margin: 20px 0;
+}
+
+.textoInferior {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    max-width: 90%;
+  }
+
+  .pill {
+    font-size: 3rem;
+  }
+
+  .inside h1 {
+    font-size: 2rem;
+  }
+
+  .outside p, .textoInferior {
+    font-size: 1rem;
+  }
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Mensaje para ti</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <div class="outside">
+      <div class="front">
+        <p>Mensaje para ti</p>
+        <div class="pill" aria-label="Icono decorativo">🔱</div>
+      </div>
+      <div class="back"></div>
+    </div>
+    <div class="inside">
+      <p>Pa mi LIIIIDELLLLLLLL</p>
+      <p>Besos de buenas noches o una noche de buenos besos</p>
+      <h1 aria-label="Emojis decorativos">😈🥵</h1>
+    </div>
+  </main>
+  <footer class="textoInferior">
+    <p>1. Pon la música</p>
+    <p>2. Toca el icono o mantén para abrir</p>
+  </footer>
+  <audio controls loop preload="auto">
+    <source src="audio.mp3" type="audio/mp3">
+    Tu navegador no soporta audio embebido.
+  </audio>
+</body>
+</html>
